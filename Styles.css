@@ -1,0 +1,323 @@
+/*color pallet:
+
+text-color: #080810
+background: #18284a
+background: #53a5df  #53a5df
+background: #abd6f6
+highlight : #ebf8fe
+
+*/
+
+
+
+
+body {
+  background: #18284a;
+  overflow: hidden;
+  
+  user-select: none;
+  
+  padding: 0px;
+  margin: 0px;
+}
+
+hr {
+  color: #080810;
+}
+
+
+/*Charater Selection Screen*/
+.ChoosingClassContainer {
+  width: 100vw;
+  height: 100vh;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.ChoosingClass {
+  /*make the cards take up the entire screen*/
+  width: 23%;
+  height: 80%;
+  
+  margin: 0.5%;
+  margin-left: 0;
+
+  background-color: #53a5df;
+  border: 1px solid black;
+  /*put the cards in a line*/
+  float: left;
+  /*edit the text at the top of the card*/
+  text-align: center;
+  color: #080810;
+  font-size: 150%;
+}
+.ChoosingClass:hover {
+  border: 3px solid #ebf8fe;
+}
+
+
+/*Everything*/
+.MainContainer {
+  display: none;
+  
+  width: 100vw;
+  height: 100vh;
+  
+  padding: 0px;
+  margin: 0px;
+  
+  background-color: #18284a;
+}
+
+/*character screen navigation bar*/
+.NavBar {
+  width: 100vw;
+  height: 10vh;
+  
+  display: flex;
+  
+  padding: 0px;
+  margin: 0px;
+
+  overflow: hidden;
+
+  background-color: #53a5df;
+  border: 1px solid black;
+}
+
+.NavBar #NavBarBtn {
+  /*for each element in NavBar divide 100/ the number of children and set the width*/
+  width: 50%;
+  height: 10vh;
+  
+  overflow: hidden;
+  float: left;
+  
+  text-align: center;
+  
+  color: black;
+  text-decoration: none;
+  padding: 14px 16px;
+  font-size: 17px;
+}
+
+.NavBar #NavBarBtn:hover {
+  background-color: #97c9eb;
+}
+
+.TabBar {
+  width: 100vw;
+  height: 5vh;
+  
+  color: #abd6f6;
+  text-align: center;
+  font-size: 20px;
+}
+
+.TabBar #level {
+  float: left;
+}
+
+.TabBar #coins {
+  float: right;
+}
+
+/*character screen*/
+.characterScreen {
+ width: 100vw;
+ height: 100vh;
+ bottom: 0;
+}
+
+/*Invintory display*/
+.invintory {
+  width: 48%;
+  height: 80%;
+
+  margin: 1%;
+  
+  overflow-x: hidden;
+  overflow-y: auto;
+  
+  float: left;
+  
+  background-color: #53a5df;
+}
+
+.InvNavBar {
+  width: 100%;
+  height: 10%;
+  
+  display: flex;
+  
+  padding: 0px;
+  margin: 0px;
+
+  overflow: hidden;
+
+  background-color: #53a5df;
+  border: 1px solid black;
+}
+
+.InvNavBar div {
+  /*for each element in NavBar divide 100/ the number of children and set the width*/
+  width: 50%;
+  height: 10vh;
+  
+  overflow: hidden;
+  float: left;
+  
+  text-align: center;
+  
+  color: black;
+  text-decoration: none;
+  padding: 14px 16px;
+  font-size: 17px;
+}
+
+.InvNavBar div:hover {
+  background-color: #97c9eb;
+}
+
+/*invintory menus*/
+.InvMenu {
+  padding: 1vw;
+  
+  padding-top: 1vw;
+  padding-left: 1.7vw;
+}
+
+#WeaponMenu {
+  display: block;
+}
+
+#ArmourMenu {
+  display: none;
+}
+
+/*items*/
+.tooltip {
+  position: relative;
+  display: block;
+
+  float: left;
+
+  text-align: center;
+
+  width: 10vw;
+  height: 10vw;
+  margin: 0.1vw;
+
+  overflow-wrap: break-word;
+
+  border: 2px solid black;
+}
+
+.tooltip .tooltiptext {
+  visibility: hidden;
+  width: 15vw;
+  background-color: black;
+  color: #fff;
+  text-align: center;
+  border-radius: 6px;
+  margin-left: 10vw;
+  padding: 5px 0;
+
+  /* Position the tooltip */
+  position: absolute;
+  z-index: 1;
+}
+
+.InvMenu :nth-child(4n).tooltip .tooltiptext{
+  top: -5px;
+  right: 105%; 
+}
+
+.level  :nth-child(3n).tooltip .tooltiptext{
+  top: -5px;
+  right: 105%; 
+}
+
+.tooltip:hover .tooltiptext {
+  visibility: visible;
+}
+
+#notEquipped {
+  border: 2px solid black;
+}
+#equipped {
+  border: 2px solid lightgreen;
+}
+
+
+/*character display*/
+.character {
+  width: 48%;
+  height: 80%;
+
+  margin: 1%;
+  
+  float: left;
+  
+  background-color: #53a5df;
+  
+  z-index: 0;
+}
+
+.playerStats {
+  display: flex;
+  
+  width: 100%;
+  height: 6%;
+  
+  text-align: center;
+  
+  float: left;
+}
+
+.playerStat {
+  width: 50%;
+}
+
+.shopScreen {
+    width: 100%;
+    height: 100%;
+    
+    background-color: #53a5df;
+}
+
+.level {
+    width: 100%;
+    height: 25%;
+    
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.lockedLevel > * {
+    display: none;
+}
+
+.unlockedLevel > * {
+    display: block;
+    
+    margin-left: 15%;
+    margin-right: 15%;
+}
+
+.refreshShopBtn {
+    width: 15%;
+    height: 5%;
+    
+    border: 2px solid black;
+    
+    text-align: center;
+    
+    background: #abd6f6;
+}
+
+.refreshShopBtn:hover {
+    background: #ebf8fe;
+}

@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <link rel="stylesheet" href="Styles.css">
+        <title>Overhead</title>
+    </head>
+    
+    <body>
+        <!--When fist loding in the user in prompted with a selection screen will disapear once clicked-->
+        <div class="ChoosingClassContainer" id='ClassContainer'>
+            <div class="ChoosingClass" onclick="setClass('Warrior');"><div class="ChoosingClassTxt">Warrior</div><hr></div>
+            <div class="ChoosingClass" onclick="setClass('Mage');"><div class="ChoosingClassTxt">Mage</div><hr></div>
+            <div class="ChoosingClass" onclick="setClass('Tank');"><div class="ChoosingClassTxt">Tank</div><hr></div>
+            <div class="ChoosingClass" onclick="setClass('Ninja');"><div class="ChoosingClassTxt">Ninja</div><hr></div>
+        </div>
+        
+        <!--Main conatiner for everything -->
+        <div class='MainContainer' id="mainDiv">
+            <!--Navigation bar-->
+            <div class="NavBar" id="NavBar">
+                <!--buttons on the navigation bar-->
+                <div id="NavBarBtn" class="notCurrTab">Shop</div>
+                <div id="NavBarBtn" class="currTab">Charater</div>
+            </div>
+            <hr> 
+            <!--a bar displaying the user level and coins just below the navigation bar-->
+            <div class="TabBar"><span id="coins">Coins: 0</span><span id="level">Level: 0</span></div>
+            <hr>
+            <!--entire character container-->
+            <div class="characterScreen" id='characterScreen'>
+                <!--displays the users stats, buffs, ect-->
+                <div class="character">
+                    <div class="playerStats">
+                        <div class="playerStat" id="healthStat">health: 0</div>
+                        <div class="playerStat" id="defenceStat">defence: 0</div>
+                    </div>
+                    <hr>
+                    <div class="playerStats">
+                        <div class="playerStat" id="damageStat">damage: 0</div>
+                        <div class="playerStat" id="magicStat">magic: 0</div>
+                    </div>
+                    <hr>
+                    <div class="playerStats">
+                        <div class="playerStat" id="manaStat">mana: 0</div>
+                        <div class="playerStat" id="dodgeStat">dodge: 0</div>
+                    </div>
+                    <hr>
+                </div>
+                <!--displays the users invintory-->
+                <div class="invintory">
+                    <!--the navigation bar for the invintory-->
+                    <div class="InvNavBar">
+                        <!--if adding more make it able to swich NOTE: more than 3 will need manual editing-->
+                        <div class="InvNavPgActive" id="WeaponMenuBtn">Weapons</div>
+                        <div class="" id="ArmourMenuBtn">Armour</div>
+                    </div>
+                    <!--weapon menu -->
+                    <div class="InvMenu" id="WeaponMenu"></div>
+                    <!--armor menu-->
+                    <div class="InvMenu" id="ArmourMenu"></div>
+
+                </div>
+            </div>
+            <!-- entire shop screen -->
+            <div class="shopScreen" id='shopScreen' style="display:none">
+                <div class='refreshShopBtn' onclick="refreshShop();">Refresh</div>
+                <div class='level one unlockedLevel' id='level1'>
+
+                </div><hr>
+                <div class='level two lockedLevel' id='level2'>
+
+                </div><hr>
+                <div class='level three lockedLevel' id='level3'>
+
+                </div>
+            </div>
+        </div>
+        
+        <script src="./main.js"></script>
+        <script src="./CharacterScreen.js"></script>
+        <script src="./ShopScreen.js"></script>
+    </body>
+</html>
