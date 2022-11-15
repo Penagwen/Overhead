@@ -348,15 +348,24 @@ document.getElementById('NavBar').addEventListener('click', (event) => {
         // update the tab bar
         document.getElementById("coins").innerHTML = `Coins ${player.coins}`;
         document.getElementById("level").innerHTML = `Level ${player.level}`;
-        event.target.parentElement.children[0].className == 'currTab' ? event.target.parentElement.children[0].className = 'notCurrTab' : event.target.parentElement.children[0].className = 'currTab';
-        event.target.parentElement.children[1].className == 'currTab' ? event.target.parentElement.children[1].className = 'notCurrTab' : event.target.parentElement.children[1].className = 'currTab';
+        Object.values(event.target.parentElement.children).forEach((childEl) => {
+            childEl.className = 'notCurrTab';
+        })
+        event.target.className = 'currTab';
     }
+    console.log(event.target.firstChild.data);
     if(event.target.firstChild.data == 'Shop'){
         document.getElementById('shopScreen').style.display = 'block';
         document.getElementById('characterScreen').style.display = 'none';
-    }else {
+        document.getElementById('dungeonScreen').style.display = 'none';
+    }else if(event.target.firstChild.data == 'Charater'){
         document.getElementById('shopScreen').style.display = 'none';
         document.getElementById('characterScreen').style.display = 'block';
+        document.getElementById('dungeonScreen').style.display = 'none';
         refreshCharaterScreen();
+    }else if(event.target.firstChild.data == 'Dungeon'){
+        document.getElementById('shopScreen').style.display = 'none';
+        document.getElementById('characterScreen').style.display = 'none';
+        document.getElementById('dungeonScreen').style.display = 'block';
     }
 })
