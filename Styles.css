@@ -330,3 +330,33 @@ hr {
     
     background-color: #53a5df;
 }
+
+.currFloor{
+    top: 10px;
+    margin-left: 44.5%;
+    
+    color: #ebf8fe;
+    
+    font-size: 5vw;
+}
+
+.startBtn {
+    margin-top: 20vh;
+    margin-left: 42%;
+
+    width: 20vw;
+    height: 10vw;
+    
+    line-height: 8vw;
+    text-align: center;
+    
+    border: 2px solid black;
+    border-radius: 25px;
+    
+    font-size: 5vw;
+}
+
+.startBtn:hover {
+    border: 2px solid lightgreen;
+    color: lightgreen;
+}

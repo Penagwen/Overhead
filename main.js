@@ -1,4 +1,4 @@
-const player = {
+let player = {
     
     stats: {
         health: 0,
