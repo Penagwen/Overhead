@@ -353,7 +353,6 @@ document.getElementById('NavBar').addEventListener('click', (event) => {
         })
         event.target.className = 'currTab';
     }
-    console.log(event.target.firstChild.data);
     if(event.target.firstChild.data == 'Shop'){
         document.getElementById('shopScreen').style.display = 'block';
         document.getElementById('characterScreen').style.display = 'none';
