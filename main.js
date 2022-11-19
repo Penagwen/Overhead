@@ -265,25 +265,29 @@ const itemList = {
         defence: 2,
         cost: {min:10, max:15},
         rarity: 'BASIC',
-        type: 'Armour'
+        type: 'Armour',
+        piece: 'Helmet'
     },
     LEATHERCHESTPLATE: {
         defence: 4,
         cost: {min:10, max:15},
         rarity: 'BASIC',
-        type: 'Armour'
+        type: 'Armour',
+        piece: 'Chestplate'
     },
     LEATHERPANTS: {
         defence: 3,
         cost: {min:10, max:15},
         rarity: 'BASIC',
-        type: 'Armour'
+        type: 'Armour',
+        piece: 'Pants'
     },
     LEATHERBOOTS: {
         defence: 1,
         cost: {min:10, max:15},
         rarity: 'BASIC',
-        type: 'Armour'
+        type: 'Armour',
+        piece: 'Boots'
     }
 }
 
@@ -353,11 +357,11 @@ document.getElementById('NavBar').addEventListener('click', (event) => {
         })
         event.target.className = 'currTab';
     }
-    if(event.target.firstChild.data == 'Shop'){
+    if(event.target.firstChild.data == 'Shop' && !onGoingDungeon){
         document.getElementById('shopScreen').style.display = 'block';
         document.getElementById('characterScreen').style.display = 'none';
         document.getElementById('dungeonScreen').style.display = 'none';
-    }else if(event.target.firstChild.data == 'Charater'){
+    }else if(event.target.firstChild.data == 'Charater' && !onGoingDungeon){
         document.getElementById('shopScreen').style.display = 'none';
         document.getElementById('characterScreen').style.display = 'block';
         document.getElementById('dungeonScreen').style.display = 'none';

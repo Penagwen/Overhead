@@ -108,15 +108,55 @@ function refreshCharaterScreen(){
 
 
 // equip and unequip items
+let weaponsEquipped = 0;
+let armourEquipped = {
+    helmet: false,
+    chestplate: false,
+    pants: false,
+    boots: false
+}
 document.getElementById('characterScreen').addEventListener('click', (event) => {
     // equip items
-    if(event.target.id == 'notEquipped'){
+    const equipItem = (el) => {
+        if(itemList[event.target.lastChild.data].type == 'Weapon' && weaponsEquipped < 4){
+            weaponsEquipped ++;
+        }else if(itemList[event.target.lastChild.data].type == 'Armour'){
+            if(itemList[event.target.lastChild.data].piece == 'Helmet' && !armourEquipped.helmet){
+                armourEquipped.helmet = true;
+            }else if(itemList[event.target.lastChild.data].piece == 'Chestplate' && !armourEquipped.chestplate){
+                armourEquipped.chestplate = true;
+            }else if(itemList[event.target.lastChild.data].piece == 'Pants' && !armourEquipped.pants){
+                armourEquipped.pants = true;
+            }else if(itemList[event.target.lastChild.data].piece == 'Boots' && !armourEquipped.boots){
+                armourEquipped.boots = true;
+            }else{ return; }
+        }else{ return; }
+        
+        
+        
         event.target.id = 'equipped';
         // push the name of the item to the players equipped items
         
         player.equippedItems.push(event.target.lastChild.data);
         refreshCharaterScreen();
+    }
+    
+    if(event.target.id == 'notEquipped'){
+        equipItem();
     }else if(event.target.id == 'equipped'){
+        if(itemList[event.target.lastChild.data].type == 'Weapon'){
+            weaponsEquipped --;
+        }else if(itemList[event.target.lastChild.data].type == 'Armour'){
+            if(itemList[event.target.lastChild.data].piece == 'Helmet'){
+                armourEquipped.helmet = false;
+            }else if(itemList[event.target.lastChild.data].piece == 'Chestplate'){
+                armourEquipped.chestplate = false;
+            }else if(itemList[event.target.lastChild.data].piece == 'Pants'){
+                armourEquipped.pants = false;
+            }else if(itemList[event.target.lastChild.data].piece == 'Boots'){
+                armourEquipped.boots = false;
+            }
+        }
         event.target.id = 'notEquipped';
         
         player.equippedItems.splice(player.equippedItems.indexOf(event.target.lastChild.data), 1);

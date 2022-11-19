@@ -44,7 +44,12 @@ class Enemy{
         health.style.backgroundColor = 'red';
         health.id = 'healthBar';
         
-
+        const enemyNameContainer = document.createElement('div');
+        const enemyName = document.createTextNode(this.name.toUpperCase());
+        enemyNameContainer.id = 'enemyName';
+        
+        enemyNameContainer.appendChild(enemyName);
+        enemyContainer.appendChild(enemyNameContainer);
         enemyHealthBarContainer.appendChild(health);
         enemyContainer.appendChild(enemyHealthBarContainer);
         enemyContainer.appendChild(enemy);
@@ -56,10 +61,16 @@ class Enemy{
     }
 }
 
+let onGoingDungeon = false;
+
 let floor = 1;
 let currEnemy
 
 function startDungeon(){
+    if(weaponsEquipped <= 0){ return; }
+    
+    onGoingDungeon = true;
+    
     document.getElementById('currFloor').style.display = 'none';
     document.getElementById('startBtn').style.display = 'none';
     
@@ -70,8 +81,43 @@ function startDungeon(){
     currEnemy.update()
 }
 
+function stopDungeon(){
+    console.log(document.getElementById('dungeonScreen').children);
+}
+
 const getCurrEnemy = () => new Enemy(Object.keys(enemies)[Math.floor(Math.random()*Object.keys(enemies).length)]);
 
 function setUpScreen(){
     currEnemy.draw();
+    
+    const moveContainer = document.createElement('div');
+    moveContainer.id = 'moveContainer';
+    
+    if(floor == 1){
+        const leaveBtn = document.createElement('div')
+        leaveBtn.id = 'leaveBtn';
+        leaveBtn.setAttribute("onclick", "stopDungeon()");
+        leaveBtn.appendChild(document.createTextNode('Leave'));
+        document.getElementById('dungeonScreen').prepend(leaveBtn);
+    }
+    
+    attackBtns(moveContainer);
+    
+    document.getElementById('dungeonScreen').appendChild(moveContainer);
+    
+}
+
+function attackBtns(moveContainer){
+    player.equippedItems.forEach((itemName) => {
+        if(itemList[itemName].type == 'Weapon'){
+            const move = document.createElement('div');
+            move.id = 'move';
+            move.style.width = `${100/weaponsEquipped}%`;
+            
+            const moveName = document.createTextNode(itemName);
+            
+            move.appendChild(moveName);
+            moveContainer.appendChild(move);
+        }
+    })
 }
