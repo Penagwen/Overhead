@@ -25,10 +25,10 @@ const enemies = {
 class Enemy{
     constructor(name){
         this.name = name;
-        this.health = enemies[this.name].health;
-        this.defence = enemies[this.name].defence;
-        this.damage = enemies[this.name].damage;
-        this.dodge = enemies[this.name].dodge;
+        this.health = enemies[name].health;
+        this.defence = enemies[name].defence;
+        this.damage = enemies[name].damage;
+        this.dodge = enemies[name].dodge;
     }
     
     draw(){
@@ -40,9 +40,9 @@ class Enemy{
         
         const enemyHealthBarContainer = document.createElement('div')
         enemyHealthBarContainer.id = 'enemyHealthBarContainer';
-        const health = document.createElement('div');
-        health.style.backgroundColor = 'red';
-        health.id = 'healthBar';
+        const healthDis = document.createElement('div');
+        healthDis.style.backgroundColor = 'red';
+        healthDis.id = 'healthBar';
         
         const enemyNameContainer = document.createElement('div');
         const enemyName = document.createTextNode(this.name.toUpperCase());
@@ -50,14 +50,23 @@ class Enemy{
         
         enemyNameContainer.appendChild(enemyName);
         enemyContainer.appendChild(enemyNameContainer);
-        enemyHealthBarContainer.appendChild(health);
+        enemyHealthBarContainer.appendChild(healthDis);
         enemyContainer.appendChild(enemyHealthBarContainer);
         enemyContainer.appendChild(enemy);
         document.getElementById('dungeonScreen').appendChild(enemyContainer);
     }
     
     update(){
-        document.getElementById('healthBar').style.width = (currEnemy.health / enemies[currEnemy.name].health)*100 + '%';
+        if(this.health <= 0){
+            this.health = 0;
+            Object.values(document.getElementById('dungeonScreen').children).forEach((el) => {
+                if(el.className == ''){ document.getElementById('dungeonScreen').removeChild(el); }
+            })
+            currEnemy = getCurrEnemy();
+            setUpScreen();
+        }else{
+            document.getElementById('healthBar').style.width = (this.health / enemies[this.name].health)*100 + '%';
+        }
     }
 }
 
@@ -77,19 +86,23 @@ function startDungeon(){
     
     currEnemy = getCurrEnemy();
     setUpScreen();
-    
-    currEnemy.update()
 }
 
 function stopDungeon(){
-    console.log(document.getElementById('dungeonScreen').children);
+    Object.values(document.getElementById('dungeonScreen').children).forEach((el) => {
+        if(el.className == ''){ document.getElementById('dungeonScreen').removeChild(el); }
+        else{ el.style.display = 'block'; }
+
+        onGoingDungeon = false;
+    })
 }
 
 const getCurrEnemy = () => new Enemy(Object.keys(enemies)[Math.floor(Math.random()*Object.keys(enemies).length)]);
 
 function setUpScreen(){
     currEnemy.draw();
-    
+    currEnemy.update();
+
     const moveContainer = document.createElement('div');
     moveContainer.id = 'moveContainer';
     
@@ -100,7 +113,7 @@ function setUpScreen(){
         leaveBtn.appendChild(document.createTextNode('Leave'));
         document.getElementById('dungeonScreen').prepend(leaveBtn);
     }
-    
+
     attackBtns(moveContainer);
     
     document.getElementById('dungeonScreen').appendChild(moveContainer);
@@ -121,3 +134,14 @@ function attackBtns(moveContainer){
         }
     })
 }
+
+document.getElementById('dungeonScreen').addEventListener('click', (event) => {
+    if(event.target.id == 'move'){
+        if(event.target.innerHTML.indexOf('WAND') > -1 || event.target.innerHTML.indexOf('STAFF') > -1 || event.target.innerHTML.indexOf('BOOK') > -1 || event.target.innerHTML.indexOf('AMULET') > -1 ){
+            currEnemy.health -= itemList[event.target.innerHTML].damage + player.stats.magic;
+        }else{
+            currEnemy.health -= itemList[event.target.innerHTML].damage + player.stats.damage;
+        }
+        currEnemy.update();
+    }
+})

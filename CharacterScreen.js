@@ -117,7 +117,7 @@ let armourEquipped = {
 }
 document.getElementById('characterScreen').addEventListener('click', (event) => {
     // equip items
-    const equipItem = (el) => {
+    const equipItem = () => {
         if(itemList[event.target.lastChild.data].type == 'Weapon' && weaponsEquipped < 4){
             weaponsEquipped ++;
         }else if(itemList[event.target.lastChild.data].type == 'Armour'){
