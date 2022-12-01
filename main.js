@@ -1,5 +1,5 @@
 let player = {
-    
+     
     stats: {
         health: 0,
         defence: 0,
@@ -26,7 +26,8 @@ const itemList = {
         cost: {min:10, max:15},
         turns: 1,
         rarity: "BASIC",
-        type: "Weapon"
+        type: "Weapon",
+        attackType: "melee"
     },
     OAKWAND: {
         damage: 10,
@@ -34,7 +35,8 @@ const itemList = {
         cost: {min:10, max:15},
         turns: 1,
         rarity: "BASIC",
-        type: "Weapon"
+        type: "Weapon",
+        attackType: "ranged"
     },
     WOODENHAMMER: {
         damage: 10,
@@ -42,7 +44,8 @@ const itemList = {
         cost: {min:10, max:15},
         turns: 1,
         rarity: "BASIC",
-        type: "Weapon"
+        type: "Weapon",
+        attackType: "melee"
     },
     WOODENKNIFE: {
         damage: 10,
@@ -50,7 +53,8 @@ const itemList = {
         cost: {min:10, max:15},
         turns: 1,
         rarity: "BASIC",
-        type: "Weapon"
+        type: "Weapon",
+        attackType: "melee"
     },
     BRONZESWORD: {
         damage: 25,
@@ -58,7 +62,8 @@ const itemList = {
         cost: {min:50, max:60},
         turns: 1,
         rarity: "UNCOMMON",
-        type: "Weapon"
+        type: "Weapon",
+        attackType: "melee"
     },
     BRONZEGREATSWORD: {
         damage: 40,
@@ -66,7 +71,8 @@ const itemList = {
         cost: {min:55, max:60},
         turns: 1,
         rarity: "UNCOMMON",
-        type: "Weapon"
+        type: "Weapon",
+        attackType: "melee"
     },
     BRONZEHAMMER: {
         damage: 50,
@@ -74,7 +80,8 @@ const itemList = {
         cost: {min:50, max:60},
         turns: 1,
         rarity: "UNCOMMON",
-        type: "Weapon"
+        type: "Weapon",
+        attackType: "melee"
     },
     BRONZEBROADSWORD: {
         damage: 55,
@@ -82,7 +89,8 @@ const itemList = {
         cost: {min:55, max:70},
         turns: 1,
         rarity: "UNCOMMON",
-        type: "Weapon"
+        type: "Weapon",
+        attackType: "melee"
     },
     BIRCHWAND: {
         damage: 40,
@@ -90,7 +98,8 @@ const itemList = {
         cost: {min:55, max:60},
         turns: 1,
         rarity: "UNCOMMON",
-        type: "Weapon"
+        type: "Weapon",
+        attackType: "ranged"
     },
     BIRCHSTAFF: {
         damage: 75,
@@ -98,7 +107,8 @@ const itemList = {
         cost: {min:75, max:90},
         turns: 1,
         rarity: "UNCOMMON",
-        type: "Weapon"
+        type: "Weapon",
+        attackType: "ranged"
     },
     BRONZEDAGGER: {
         damage: 20,
@@ -106,7 +116,8 @@ const itemList = {
         cost: {min:55, max:70},
         turns: 1,
         rarity: "UNCOMMON",
-        type: "Weapon"
+        type: "Weapon",
+        attackType: "melee"
     },
     BRONZEKNIFE: {
         damage: 15,
@@ -114,7 +125,8 @@ const itemList = {
         cost: {min:50, max:65},
         turns: 1,
         rarity: "UNCOMMON",
-        type: "Weapon"
+        type: "Weapon",
+        attackType: "melee"
     },
     IRONRAPIER: {
         damage: 45,
@@ -122,7 +134,8 @@ const itemList = {
         cost: {min:190, max:220},
         turns: 1,
         rarity: "RARE",
-        type: "Weapon"
+        type: "Weapon",
+        attackType: "melee"
     },
     IRONSABER: {
         damage: 65,
@@ -130,7 +143,8 @@ const itemList = {
         cost: {min:200, max:230},
         turns: 1,
         rarity: "RARE",
-        type: "Weapon"
+        type: "Weapon",
+        attackType: "melee"
     },
     IRONSWORD: {
         damage: 70,
@@ -138,7 +152,8 @@ const itemList = {
         cost: {min:180, max:200},
         turns: 1,
         rarity: "RARE",
-        type: "Weapon"
+        type: "Weapon",
+        attackType: "melee"
     },
     IRONGREATSWORD: {
         damage: 90,
@@ -146,7 +161,8 @@ const itemList = {
         cost: {min:200, max:230},
         turns: 1,
         rarity: "RARE",
-        type: "Weapon"
+        type: "Weapon",
+        attackType: "melee"
     },
     IRONHAMMER: {
         damage: 110,
@@ -154,7 +170,8 @@ const itemList = {
         cost: {min:170, max:210},
         turns: 1,
         rarity: "RARE",
-        type: "Weapon"
+        type: "Weapon",
+        attackType: "melee"
     },
     DOUBLEBARREL: {
         damage: 75,
@@ -162,7 +179,8 @@ const itemList = {
         cost: {min:160, max:205},
         turns: 1,
         rarity: "RARE",
-        type: "Weapon"
+        type: "Weapon",
+        attackType: "ranged"
     },
     CANNON: {
         damage: 150,
@@ -170,7 +188,8 @@ const itemList = {
         cost: {min:200, max:240},
         turns: 1,
         rarity: "RARE",
-        type: "Weapon"
+        type: "Weapon",
+        attackType: "ranged"
     },
     IRONBROADSWORD: {
         damage: 100,
@@ -178,7 +197,8 @@ const itemList = {
         cost: {min:195, max:225},
         turns: 1,
         rarity: "RARE",
-        type: "Weapon"
+        type: "Weapon",
+        attackType: "melee"
     },
     GREATWOODWAND: {
         damage: 90,
@@ -186,7 +206,8 @@ const itemList = {
         cost: {min:195, max:240},
         turns: 1,
         rarity: "RARE",
-        type: "Weapon"
+        type: "Weapon",
+        attackType: "ranged"
     },
     GREATWOODSTAFF: {
         damage: 160,
@@ -194,7 +215,8 @@ const itemList = {
         cost: {min:220, max:280},
         turns: 1,
         rarity: "RARE",
-        type: "Weapon"
+        type: "Weapon",
+        attackType: "ranged"
     },
     SPELLBOOK: {
         damage: 95,
@@ -202,7 +224,8 @@ const itemList = {
         cost: {min:200, max:230},
         turns: 1,
         rarity: "RARE",
-        type: "Weapon"
+        type: "Weapon",
+        attackType: "ranged"
     },
     AMULET: {
         damage: 80,
@@ -210,7 +233,8 @@ const itemList = {
         cost: {min:235, max:245},
         turns: 1,
         rarity: "RARE",
-        type: "Weapon"
+        type: "Weapon",
+        attackType: "ranged"
     },
     IRONDAGGER: {
         damage: 30,
@@ -218,7 +242,8 @@ const itemList = {
         cost: {min:185, max:215},
         turns: 1,
         rarity: "RARE",
-        type: "Weapon"
+        type: "Weapon",
+        attackType: "melee"
     },
     IRONKNIFE: {
         damage: 25,
@@ -226,7 +251,8 @@ const itemList = {
         cost: {min:170, max:200},
         turns: 1,
         rarity: "RARE",
-        type: "Weapon"
+        type: "Weapon",
+        attackType: "melee"
     },
     SMOKEBOMB: {
         damage: 0,
@@ -234,7 +260,8 @@ const itemList = {
         cost: {min:50, max:55},
         turns: 1,
         rarity: "RARE",
-        type: "Weapon"
+        type: "Weapon",
+        attackType: "ranged"
     },
     POSINDART: {
         damage: 15,
@@ -242,7 +269,8 @@ const itemList = {
         cost: {min:60, max:75},
         turns: 1,
         rarity: "RARE",
-        type: "Weapon"
+        type: "Weapon",
+        attackType: "ranged"
     },
     STICK1: {
         damage: 999,
@@ -250,7 +278,8 @@ const itemList = {
         cost: {min:0, max:0},
         turns: 1,
         rarity: "LEGENDARY",
-        type: "Weapon"
+        type: "Weapon",
+        attackType: "melee"
     },
     STICK2: {
         damage: 999999,
@@ -258,7 +287,8 @@ const itemList = {
         cost: {min:0, max:0},
         turns: 1,
         rarity: "MYTHIC",
-        type: "Weapon"
+        type: "Weapon",
+        attackType: "melee"
     },
     
     LEATHERHELMET: {

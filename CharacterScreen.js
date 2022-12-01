@@ -1,4 +1,4 @@
-// Swich inv screen
+// Swich inv screen 
 document.getElementById('WeaponMenuBtn').addEventListener('click', (event) => {
     document.getElementById('WeaponMenu').style.display = 'block';
     document.getElementById('ArmourMenu').style.display = 'none';
@@ -118,7 +118,7 @@ let armourEquipped = {
 document.getElementById('characterScreen').addEventListener('click', (event) => {
     // equip items
     const equipItem = () => {
-        if(itemList[event.target.lastChild.data].type == 'Weapon' && weaponsEquipped < 4){
+        if(itemList[event.target.lastChild.data].type == 'Weapon' && weaponsEquipped < 1){
             weaponsEquipped ++;
         }else if(itemList[event.target.lastChild.data].type == 'Armour'){
             if(itemList[event.target.lastChild.data].piece == 'Helmet' && !armourEquipped.helmet){
