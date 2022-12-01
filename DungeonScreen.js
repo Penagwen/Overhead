@@ -157,7 +157,11 @@ const getObjective = (floor) => {
 function attack(){
     player.equippedItems.forEach((item) => {
         if(item.type == "Weapon"){
-            
+            if(item.attackType == "melee"){
+
+            }else if(item.attackType == "ranged"){
+                
+            }
         }
     }) 
 }
